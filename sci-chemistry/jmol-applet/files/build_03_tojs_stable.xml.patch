@@ -1,0 +1,93 @@
+--- build_03_tojs_stable.xml.orig	2014-04-05 12:17:48.230097104 -0500
++++ build_03_tojs_stable.xml	2014-04-05 12:21:08.434494871 -0500
+@@ -3,8 +3,10 @@
+    <!-- you must have checked out and built the Jmol project prior to running this. -->
+ 	
+ 	
+-   <property name="jmol.path" value="../Jmol-14_0" />
+-   <property name="jsv.path" value="../JSpecView" />
++   <!--property name="jmol.path" value="../Jmol-14_0" -->
++   <!--property name="jsv.path" value="../JSpecView" -->
++   <property name="jmol.path" value="../jmol-14.0.11" />
++   <property name="jsv.path" value="../jspecview-1169/JSpecView" />
+ 
+    <target name="toJs" id="toJs">
+   			
+@@ -22,37 +24,37 @@
+     </copy>
+ 
+     <copy overwrite="true" todir="site/jsmol/j2s/java" >
+-      <fileset dir="bin/java">
++      <fileset dir="j2s/java">
+         <include name="**/*.js" />
+       </fileset>
+     </copy>
+ 
+     <copy todir="site/jsmol/j2s/JZ" >
+-      <fileset dir="bin/com/jcraft/jzlib">
++      <fileset dir="old/src/com/jcraft/jzlib">
+         <include name="**/*.js" />
+       </fileset>
+     </copy>
+     
+    	<copy todir="site/jsmol/j2s/J" >
+-      <fileset dir="bin/org/jmol">
++      <fileset dir="src/org/jmol">
+         <include name="**/*.js" />
+       </fileset>
+     </copy>
+    	
+    	<copy todir="site/jsmol/j2s/JSV" >
+-      <fileset dir="bin/jspecview">
++      <fileset dir="src/jspecview">
+         <include name="**/*.js" />
+       </fileset>
+     </copy>
+    	
+    	<copy todir="site/jsmol/j2s/JU" >
+-      <fileset dir="bin/javajs/util">
++      <fileset dir="src/javajs/util">
+         <include name="**/*.js" />
+       </fileset>
+     </copy>
+    	
+    	<copy todir="site/jsmol/j2s/javajs" >
+-      <fileset dir="bin/javajs">
++      <fileset dir="src/javajs">
+         <include name="**/*.js" />
+         <exclude name="**/util		/*.js" />
+       </fileset>
+@@ -108,9 +110,14 @@
+         <include name="*" />
+       </fileset>
+     </copy>
++
++    <copy todir="site/jsmol/j2s/JSV" >
++      <fileset dir="">
++      </fileset>
++    </copy>
+    	   	
+     <copy todir="site/jsmol/j2s/JSV/common" >
+-      <fileset dir="${jsv.path}">
++      <fileset dir="${jsv.path}/src/jspecview/common">
+         <include name="TODO.txt" />
+       </fileset>
+ 		  <filterchain>
+@@ -143,7 +150,7 @@
+ 
+    	<echo>adding JSV/export/resources files</echo>
+    		<copy todir="site/jsmol/j2s/JSV/export/resources" >
+-      <fileset dir="${jsv.path}Lib/src/jspecview/export/resources">
++      <fileset dir="${jsv.path}/src/jspecview/export/resources">
+         <include name="*.vm" />
+       </fileset>
+     </copy>
+@@ -1530,7 +1537,7 @@
+    	<concat destfile="site/jsmol/js/core${call-core.name}.js">
+    		<filelist dir="site/jsmol/j2s" files="${call-core.list}" />
+    	</concat> 
+-  	<copy file="site/jsmol/js/core${call-core.name}.js" tofile="site/jsmol/js/core2.js" />
++  	<!-- copy file="site/jsmol/js/core${call-core.name}.js" tofile="site/jsmol/js/core2.js" -->
+   	<replace dir="site/jsmol/js" includes="core2.js" token="Clazz." value="Clazz_"/>
+   	<replace dir="site/jsmol/js" includes="core2.js" token="Clazz__" value="Clazz._"/>
+   	<replace dir="site/jsmol/js" includes="core2.js" token="($fz = " value=""/>

@@ -1,0 +1,11 @@
+--- build_01_fromjmol_stable.xml.orig	2014-04-05 12:17:48.230097104 -0500
++++ build_01_fromjmol_stable.xml	2014-04-05 12:21:08.434494871 -0500
+@@ -1,6 +1,7 @@
+ <project name="JSmol" default="fromJmol" basedir=".">
+ 	
+-	<property name="jmol.path" value="../Jmol-14_0" />
++	<!--property name="jmol.path" value="../Jmol-14_0" -->
++	<property name="jmol.path" value="../jmol-14.0.11" />
+ 
+ 	<!-- 
+ 

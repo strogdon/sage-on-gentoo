@@ -1,0 +1,11 @@
+--- build_02_fromjspecview.xml.orig	2014-04-05 12:17:48.230097104 -0500
++++ build_02_fromjspecview.xml	2014-04-05 12:21:08.434494871 -0500
+@@ -1,6 +1,7 @@
+ <project name="JSmol" default="fromJSV" basedir=".">
+ 	
+-	<property name="jsv.path" value="../JSpecView" />
++	<!--property name="jsv.path" value="../JSpecView" -->
++	<property name="jsv.path" value="../jspecview-1169/JSpecView" />
+ 
+ 	<!-- 
+ 
